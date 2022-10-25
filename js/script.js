@@ -1,47 +1,38 @@
-"use strict";
+let card1 = document.querySelector("#card1");
+let card2 = document.querySelector("#card2");
+let card3 = document.querySelector("#card3");
+let card4 = document.querySelector("#card4");
+function compareCard() {
+  let cards = [card1, card2, card3, card4];
+  let pair = [];
+  cards.forEach(function (card) {
+    if (card === card1) {
+      pair.push[card];
+      card1.addEventListener("click", function (e) {
+        card1.classList.toggle("is-flipped");
 
-let guess = Number(
-  prompt(
-    "welcome to the game Memory. choose a card between 1-4 (give input of 1 to 4)"
-  )
-);
+        e.stopPropagation();
+      });
+    } else if (card === card2) {
+      card2.addEventListener("click", function (e) {
+        card2.classList.toggle("is-flipped");
 
-let inputAnswer = guess.value;
-let firstCard = 1;
-let secondCard = 1;
-let thirdCard = 2;
-let fourthCard = 2;
-let playerTurn = 2;
-let choosenCards = [];
+        e.stopPropagation();
+      });
+    } else if (card === card3) {
+      card3.addEventListener("click", function (e) {
+        card3.classList.toggle("is-flipped");
 
-function gameTurn () {
+        e.stopPropagation();
+      });
+    } else if (card === card4) {
+      card4.addEventListener("click", function (e) {
+        card4.classList.toggle("is-flipped");
 
-  while(inputAnswer > 2){
-
-    playerTurn -=  -1;
-
-    break;
-
-  }
-
+        e.stopPropagation();
+      });
+    }
+  });
 }
 
-function selectedCard() {
-
-  if (inputAnswer === firstCard) {
-    choosenCards.push(firstCard);
-
-    guess =  Number(prompt("Good! Choose a second Card"));
-
-  } else if (inputAnswer === secondCard) {
-    choosenCards.push(SecondCard);
-  
-  } else{
-
-    console.log('test');
-  }
-}
-
-function 
-
-selectedCard();
+compareCard();
