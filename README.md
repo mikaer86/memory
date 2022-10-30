@@ -1,7 +1,8 @@
 # memory
 
 30th october 2022
-rules:
+
+Rules:
 
 You have 4 cards with 2 pairs.
 the player has to pick a card and find a match.
