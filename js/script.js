@@ -5,7 +5,7 @@ let cardNumbers = ["1", "1", "2", "2"];
 const statusBoardTurn = document.getElementById("turnStats");
 const statusBoardWin = document.getElementById("winStats");
 const statusBoardLosses = document.getElementById("lossesStats");
-const flippedCards = document.querySelectorAll("is-flipped");
+
 
 
 function reloadGame() {
@@ -17,16 +17,16 @@ function reloadGame() {
   resetButton.addEventListener('click', reset);
 }
 
-function RandomCardValue() {
+function RandomCard() {
 
   window.addEventListener("load", function () {
 
-    const targetCardValues = document.querySelectorAll(".card__face--back");
+    const targetCardFaces = document.querySelectorAll(".card__face--back");
 
-    for (let targetCardValue of targetCardValues) {
+    for (let targetCardFace of targetCardFaces) {
       let h2 = document.createElement("h2");
 
-      targetCardValue.append(h2);
+      targetCardFace.append(h2);
 
       for (let i = cardNumbers.length; i < 5; i++) {
 
@@ -39,7 +39,9 @@ function RandomCardValue() {
   });
 }
 
-function compareCards() {
+function compareCards(flippedCards) {
+
+  flippedCards = document.querySelectorAll("is-flipped");
 
   for (let flippedCard of flippedCards) {
 
@@ -77,25 +79,29 @@ function compareCards() {
 function clickCard(flippedCard, compareCards) {
 
   let cards = document.querySelectorAll(".card__inner");
+
+
+  let cardCount = 0;
+
   for (let card of cards) {
-    let cardCount;
+
     card.addEventListener("click", function (cardCount) {
 
       while (card.classList.toggle("is-flipped")) {
 
-        cardCount += 1;
+        if (flippedCard) {
 
-        statusBoardTurn.innerHTML -= 1;
+          cardCount += 1;
 
-        if (cardCount === 2 || cardCount >= 0) {
+          statusBoardTurn.innerHTML -= 1;
 
-          //compareCards(flippedCard);
+        } if (cardCount === 2 || cardCount >= 0) {
+
+          compareCards(flippedCard);
           statusBoardTurn.innerHTML += 0;
           card.removeEventlistener("click", cardCount, false);
 
         }
-
-        break;
 
       }
 
@@ -104,6 +110,6 @@ function clickCard(flippedCard, compareCards) {
 }
 
 clickCard();
-RandomCardValue();
+RandomCard();
 
 
